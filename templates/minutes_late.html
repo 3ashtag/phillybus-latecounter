@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			* { font-family: sans-serif; }
+
+			body {
+				margin: 20px;
+			}
+
+			h1 { 
+				margin: 0px 0px 10px 0;
+			}
+
+			tr:first-child { background: #ccf;	}
+			tr:first-child td:first-child { background: #fff;}
+
+			td {
+				padding: 15px;
+			}
+		</style>
+	</head>
+	<body>
+    <h1>Since <em>February 22, 2014 @ 2:00 PM</em>, SEPTA buses have accumulated <em>{{ total_late }}</em> late minutes. </h1>
+
+    <hr />
+
+		<h1>Top Late Routes</h1>
+		<table>
+			<tr>
+				<td>Route</td>
+				<td>Minutes Late</td>
+			</tr>
+
+      {% for route in routes %}
+        <tr>
+          <td>{{ route.name }}</td>
+          <td>{{ route.total_late_time }}</td>
+			  </tr>
+      {% endfor %}
+		</table>
+	</body>
+</html>
